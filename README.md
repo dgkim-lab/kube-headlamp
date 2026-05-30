@@ -1,0 +1,58 @@
+# kube-headlamp
+
+Kubernetes manifests for running Headlamp in the local k3s cluster.
+
+Headlamp is exposed on the LAN through the k3s Traefik ingress controller:
+
+```text
+http://headlamp.k3s.dgkim.net
+```
+
+## Deploy
+
+Apply the manifests with Kustomize support built into `kubectl`:
+
+```sh
+kubectl apply -k manifests
+```
+
+Verify the deployment:
+
+```sh
+kubectl -n kube-system get deploy,svc,ingress headlamp
+kubectl -n kube-system get serviceaccount headlamp-viewer
+```
+
+## Login
+
+Create a short-lived read-only token:
+
+```sh
+kubectl -n kube-system create token headlamp-viewer
+```
+
+Open the Headlamp URL and paste the token when prompted.
+
+The `headlamp-viewer` service account is bound to the built-in Kubernetes
+`view` ClusterRole, so it can inspect common cluster resources but cannot
+modify them.
+
+## Local Port Forward
+
+If ingress or DNS is unavailable, use a local port forward:
+
+```sh
+kubectl -n kube-system port-forward service/headlamp 8080:80
+```
+
+Then open:
+
+```text
+http://localhost:8080
+```
+
+## Remove
+
+```sh
+kubectl delete -k manifests
+```
