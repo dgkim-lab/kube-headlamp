@@ -2,6 +2,11 @@
 
 Kubernetes manifests for running Headlamp in the local k3s cluster.
 
+## Learn
+
+- [What is Headlamp?](WHATIS-HEADLAMP.md)
+- [Official Headlamp homepage](https://headlamp.dev/)
+
 Headlamp is exposed on the LAN through the k3s Traefik ingress controller:
 
 ```text
