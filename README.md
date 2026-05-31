@@ -33,7 +33,7 @@ kubectl -n kube-system get serviceaccount headlamp-viewer
 Create a short-lived read-only token:
 
 ```sh
-kubectl -n kube-system create token headlamp-viewer
+scripts/get-token.sh
 ```
 
 Open the Headlamp URL and paste the token when prompted.
@@ -41,6 +41,12 @@ Open the Headlamp URL and paste the token when prompted.
 The `headlamp-viewer` service account is bound to the built-in Kubernetes
 `view` ClusterRole, so it can inspect common cluster resources but cannot
 modify them.
+
+To create a token with a different lifetime or copy it to the clipboard:
+
+```sh
+scripts/get-token.sh --duration 24h --copy
+```
 
 ## Local Port Forward
 
