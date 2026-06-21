@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: headlamp-tls
+  namespace: kube-system
+  labels:
+    app.kubernetes.io/name: headlamp
+spec:
+  secretName: headlamp-tls
+  dnsNames:
+    - headlamp.k3s-test.dgkim.net
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt-route53-prod
