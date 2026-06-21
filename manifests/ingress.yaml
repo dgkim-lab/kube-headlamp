@@ -12,10 +12,10 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - headlamp.k3s.dgkim.net
+        - headlamp.k3s-test.dgkim.net
       secretName: headlamp-tls
   rules:
-    - host: headlamp.k3s.dgkim.net
+    - host: headlamp.k3s-test.dgkim.net
       http:
         paths:
           - path: /

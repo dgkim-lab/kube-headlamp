@@ -12,7 +12,7 @@ Kubernetes manifests for running Headlamp in the local k3s cluster.
 Headlamp is exposed on the LAN through the k3s Traefik ingress controller:
 
 ```text
-https://headlamp.k3s.dgkim.net
+https://headlamp.k3s-test.dgkim.net
 ```
 
 ## Deploy

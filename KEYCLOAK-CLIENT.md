@@ -19,13 +19,13 @@ In the Keycloak admin console:
 9. Set `Valid redirect URIs` to:
 
 ```text
-https://headlamp.k3s.dgkim.net/oidc-callback
+https://headlamp.k3s-test.dgkim.net/oidc-callback
 ```
 
 10. Set `Web origins` to:
 
 ```text
-https://headlamp.k3s.dgkim.net
+https://headlamp.k3s-test.dgkim.net
 ```
 
 Save the client and copy the client secret from the `Credentials` tab.
